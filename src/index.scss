@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+
+@mixin media($size) {
+  @media(max-width:#{$size}px){
+    @content
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5));
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.title{
+  font-size: 4em;
+  color: white;
+  text-shadow: 0 0 5px white;
+  padding-bottom: 10px;
+  border-bottom: 2px white solid;
+}
