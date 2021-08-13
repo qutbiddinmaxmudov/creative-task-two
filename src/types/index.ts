@@ -67,9 +67,15 @@ export interface LikeFlatActionInterface extends Action<FlatsActionsType> {
   type: FlatsActionsType.LIKE_FLAT
   payload: FlatsState
 }
+
 export interface UnlikeFlatActionInterface extends Action<FlatsActionsType> {
   type: FlatsActionsType.UNLIKE_FLAT
   payload: FlatsState
+}
+
+export interface RootState {
+  flats: FlatsStateInterface
+  likedFlats: LikedFlatsStateInterface
 }
 
 export type FlatsActions =
