@@ -1,3 +1,5 @@
+import { Action } from 'redux'
+
 export interface FlatInterface {
   type: 'flat' | 'house'
   id: number
@@ -23,3 +25,56 @@ export interface FlatInterface {
     }
   }
 }
+
+export enum FlatsActionsType {
+  FETCH_FLATS = 'FETCH_FLATS',
+  SET_FLATS = 'SET_FLATS',
+  SET_FLATS_LOADING_STATUS = 'SET_FLATS_LOADING_STATUS',
+  LIKE_FLAT = 'LIKE_FLAT',
+  UNLIKE_FLAT = 'UNLIKE_FLAT',
+}
+
+export interface FlatsStateInterface {
+  flats: FlatInterface[]
+  status: FlatsState
+}
+export interface LikedFlatsStateInterface {
+  flats: FlatInterface[]
+}
+
+export enum FlatsState {
+  NEVER = 'NEVER',
+  LOADING = 'LOADING',
+  LOADED = 'LOADED',
+  ERROR = 'ERROR',
+}
+
+export interface FetchFlatsActionInterface extends Action<FlatsActionsType> {
+  type: FlatsActionsType.FETCH_FLATS
+}
+
+export interface SetFlatsActionInterface extends Action<FlatsActionsType> {
+  type: FlatsActionsType.SET_FLATS
+  payload: FlatInterface[]
+}
+
+export interface SetFlatsLoadingStatusInterface extends Action<FlatsActionsType> {
+  type: FlatsActionsType.SET_FLATS_LOADING_STATUS
+  payload: FlatsState
+}
+
+export interface LikeFlatActionInterface extends Action<FlatsActionsType> {
+  type: FlatsActionsType.LIKE_FLAT
+  payload: FlatsState
+}
+export interface UnlikeFlatActionInterface extends Action<FlatsActionsType> {
+  type: FlatsActionsType.UNLIKE_FLAT
+  payload: FlatsState
+}
+
+export type FlatsActions =
+  | FetchFlatsActionInterface
+  | SetFlatsActionInterface
+  | SetFlatsLoadingStatusInterface
+  | LikeFlatActionInterface
+  | UnlikeFlatActionInterface
