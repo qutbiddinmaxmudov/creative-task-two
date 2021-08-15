@@ -26,8 +26,10 @@ export const flatsReducer = produce((draft: Draft<FlatsStateInterface>, action: 
 export const likedFlatsReducer = produce((draft: Draft<LikedFlatsStateInterface>, action: FlatsActions) => {
   switch (action.type) {
     case FlatsActionsType.LIKE_FLAT:
+      draft.flats.push(action.payload)
       break
     case FlatsActionsType.UNLIKE_FLAT:
+      draft.flats = draft.flats.filter((num) => num !== action.payload)
       break
     default:
       break

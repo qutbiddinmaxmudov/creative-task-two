@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CardItem from './components/CardItem'
-import { FetchFlatsAction } from './store/actions'
-import { RootState } from './types'
+import { fetchFlatsAction } from './store/actions'
+import { FlatsState, RootState } from './types'
 
 function App() {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(FetchFlatsAction())
+    dispatch(fetchFlatsAction())
   }, [dispatch])
 
   const { flats, status } = useSelector((state: RootState) => state.flats)
@@ -16,9 +16,7 @@ function App() {
     <div className="container">
       <h1 className="title">Лучшие квартиры мира!</h1>
       <div className="cards">
-        {flats.map((flat) => (
-          <CardItem key={flat.id} {...flat} />
-        ))}
+        {status === FlatsState.LOADED ? flats.map((flat) => <CardItem key={flat.id} {...flat} />) : 'Loading'}
       </div>
     </div>
   )

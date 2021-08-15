@@ -38,8 +38,9 @@ export interface FlatsStateInterface {
   flats: FlatInterface[]
   status: FlatsState
 }
+
 export interface LikedFlatsStateInterface {
-  flats: FlatInterface[]
+  flats: number[]
 }
 
 export enum FlatsState {
@@ -65,12 +66,12 @@ export interface SetFlatsLoadingStatusInterface extends Action<FlatsActionsType>
 
 export interface LikeFlatActionInterface extends Action<FlatsActionsType> {
   type: FlatsActionsType.LIKE_FLAT
-  payload: FlatsState
+  payload: number
 }
 
 export interface UnlikeFlatActionInterface extends Action<FlatsActionsType> {
   type: FlatsActionsType.UNLIKE_FLAT
-  payload: FlatsState
+  payload: number
 }
 
 export interface RootState {

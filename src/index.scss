@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
 
 @mixin media($size) {
-  @media(max-width:#{$size}px){
+  @media(max-width:#{$size}px) {
     @content
   }
 }
@@ -27,10 +27,96 @@ body {
   margin-left: auto;
 }
 
-.title{
+.title {
   font-size: 4em;
   color: white;
   text-shadow: 0 0 5px white;
   padding-bottom: 10px;
   border-bottom: 2px white solid;
+}
+
+.cards {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+  padding: 10px 5px;
+  background: white;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  transition: 0.5s transform, 0.5s box-shadow;
+  width: 100%;
+  max-width: 400px;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px 5px white;
+  }
+
+  &__title {
+    font-size: 20px;
+    line-height: 28px;
+    height: 56px;
+    border-bottom: 2px rgba(0, 0, 0, 0.5) solid;
+    padding-bottom: 5px;
+  }
+
+  &__info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    p {
+      width: 50%;
+
+      @include media(500) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  &__address {
+    display: flex;
+    flex-wrap: wrap;
+
+    span {
+      width: 50%;
+
+      @include media(500) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__contact {
+    color: black;
+    font-size: 18px;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  &__button {
+    padding: 5px 10px;
+    display: block;
+    margin-left: auto;
+    border-radius: 15px;
+    border: none;
+    font-size: 18px;
+    background: blue;
+    color: white;
+    cursor: pointer;
+    margin-top: 30px;
+  }
 }
